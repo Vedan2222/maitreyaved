@@ -1,0 +1,332 @@
+.content {
+  flex: 1;
+  padding: 20px;
+}
+
+.content img {
+  max-width: 100%;
+  height: auto;
+  margin: 20px 0;
+}
+
+#introduction p {
+  font-family: "Georgia", serif; /* Matches the screenshot's serif font */
+  font-size: 18px; /* Adjust for readability */
+  line-height: 1.6; /* Matches the vertical spacing */
+  color: #000; /* Black text */
+}
+
+#introduction a {
+  text-decoration: underline; /* Adds underlines to links */
+  color: #0056b3; /* Blue color matching the screenshot */
+}
+
+#introduction strong {
+  font-weight: bold; /* Ensures strong text is bold */
+}
+
+#introduction em {
+  font-style: italic; /* Ensures italicized text for <em> */
+}
+.main-image {
+  height: auto;
+  width: 300px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  cursor: pointer;
+  transition: all 0.5s ease-in-out;
+}
+
+.main-image.expanded {
+  position: fixed; /* Place the image in the center of the screen */
+  top: 55%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: auto; /* Adjust height for expanded state */
+  width: 350px; /* Maintain aspect ratio */
+  z-index: 10000; /* Ensure the image appears above other elements */
+  border-radius: 20px; /* Optional: Increase border-radius when expanded */
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3); /* Add shadow for emphasis */
+}
+
+.expanded-image-title1 {
+  position: absolute; /* Changed from fixed to absolute */
+  top: 10px; /* Move up by 40px from the image */
+  left: 50%;
+  transform: translateX(-50%);
+  color: white;
+  font-size: 16px;
+  font-family: "Baseline", serif;
+  z-index: 10001;
+  /* text-align: center; */
+  width: 100%; /* Ensure the text has full width for centering */
+  margin-left: 15px;
+}
+
+.expanded-image-title2{
+  position: absolute; /* Changed from fixed to absolute */
+  top: 60px; /* Move up by 40px from the image */
+  left: 50%;
+  transform: translateX(-50%);
+  color: white;
+  font-size: 13px;
+  font-family: "Georgia", serif;
+  font-style: italic;
+  z-index: 10001;
+  /* text-align: center; */
+  width: 100%; /* Ensure the text has full width for centering */
+  margin-left: 15px;
+  font-weight: 400;
+
+}
+
+.content {
+  background-color: white;
+  transition: opacity 0.5s ease-in-out, background-color 0.5s ease-in-out; /* Smooth fade-out for hidden content and background color */
+}
+
+.content.hidden-content {
+  opacity: 0; /* Make the content invisible when the image is expanded */
+  pointer-events: none; /* Prevent interactions with the content */
+}
+
+.fullscreen-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgb(30, 29, 29); /* Grey background */
+  z-index: 9999; /* Ensure it covers everything else */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer; /* Allow clicking anywhere to close */
+  transition: background-color 0.5s ease-in-out;
+}
+
+.nav-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+  padding: 15px;
+  border-radius: 50%;
+  cursor: pointer;
+  border: none;
+  font-size: 20px;
+  transition: background-color 0.3s ease;
+  z-index: 10002;
+}
+
+.nav-arrow:hover {
+  background: rgba(255, 255, 255, 0.4);
+}
+
+.nav-arrow.next {
+  right: 20px;
+}
+
+.nav-arrow.prev {
+  left: 20px;
+}
+
+.chatbot {
+  background-color: #0056b3;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  margin-bottom: 10px;
+  margin-top: 100px;
+  transition: background-color 0.3s ease;
+}
+
+.chatbot:hover {
+  background-color: #003d82;
+}
+
+.chatbot-trigger {
+  position: fixed;
+  top: 1000px;
+  /* bottom: 10px; */
+  right: 200px;
+  padding: 15px 25px;
+  margin-top: 80px;
+  background: linear-gradient(135deg, #1a237e, #0d47a1);
+  color: white;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 600;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+  z-index: 1000;
+  width: 200px;
+  height: 50px;
+}
+
+.chatbot-trigger:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  background: linear-gradient(135deg, #0d47a1, #1a237e);
+}
+
+.chatbot-trigger:active {
+  transform: translateY(0);
+}
+
+/* For mobile devices */
+@media (max-width: 768px) {
+  .chatbot-trigger {
+      bottom: 15px;
+      right: 15px;
+      padding: 12px 20px;
+      font-size: 0.9rem;
+  }
+}
+
+/* Add a container for proper positioning */
+.content-wrapper {
+  position: relative;
+  padding-top: 60px;
+}
+
+#introduction {
+  position: relative;
+  margin-top: 20px;
+}
+
+/* Add styles for paragraph container */
+.content p {
+  width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f8f9fa;
+  border: 1px solid #e9ecef;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  line-height: 1.6;
+  font-size: 16px;
+  color: #212529;
+}
+
+/* Style links within paragraphs */
+.content p a {
+  color: #007bff;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.content p a:hover {
+  color: #0056b3;
+  text-decoration: underline;
+}
+
+/* Style strong and em elements within paragraphs */
+.content p strong {
+  color: #495057;
+  font-weight: 600;
+}
+
+.content p em {
+  color: #495057;
+  font-style: italic;
+}
+
+/* Ensure images don't overflow */
+.content img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 20px auto;
+}
+
+.content-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 40px;
+}
+
+/* Remove float and margin-left from main-image */
+.main-image {
+  float: none;
+  margin-left: 0;
+}
+
+.image-pair {
+  display: flex;
+  gap: 20px;  /* Space between images */
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.image-pair .main-image {
+  width: 250px;  /* Slightly smaller to fit two images */
+  height: auto;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+.image-pair .main-image:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.image-row {
+  display: flex;
+  justify-content: center;
+  gap: 20px;  /* Space between images */
+  margin-bottom: 20px;
+  flex-wrap: nowrap;  /* Prevent wrapping */
+}
+
+.main-image {
+  width: 200px;  /* Smaller width to fit all three images */
+  height: auto;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+/* .main-image:hover {
+  transform: scale(0);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); */
+/* } */
+
+.nav-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.8);
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  font-size: 24px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  z-index: 1001;
+}
+
+.nav-button:hover {
+  background: rgba(255, 255, 255, 0.9);
+  transform: translateY(-50%) scale(1.1);
+}
+
+.nav-button.prev {
+  left: 20px;
+}
+
+.nav-button.next {
+  right: 20px;
+}
